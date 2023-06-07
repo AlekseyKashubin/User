@@ -13,13 +13,16 @@ class User:
 
     def display_info(self):
         print(f'{self.first_name}\n{self.last_name}\n{self.email}\n{self.age}\n{self.is_reward_member}\n{self.gold_card_points}')
+        return self
 
     def enroll(self):
         self.is_reward_member= True
         self.gold_card_points = 200
+        return self
 
     def spend_points(self, amount):
         self.gold_card_points = self.gold_card_points - amount
+        return self
 
 
 
@@ -31,13 +34,13 @@ user3 = User('Peter', 'Parker','PP@dojo.com', 17)
 
 
 
-user1.enroll()
-user1.spend_points(50)
-user2.enroll()
-user2.spend_points(80)
-user1.display_info()
-user2.display_info()
+user1.enroll().spend_points(50).display_info()
+
+user2.enroll().spend_points(80).display_info()
+
 user3.display_info()
+
+
 
 
 
